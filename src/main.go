@@ -9,4 +9,14 @@ func main() {
 
 	fmt.Println("pi", pi)
 	fmt.Println("pi", pi2)
+
+	//Declaracion de variables enteras. 3 formas:
+
+	base := 10 //los dos puntos indican que se esta declarando la variable por primera vez
+	var altura int = 5
+	var area int
+
+	area = (base * altura) / 2
+
+	fmt.Println("El area es: ", area)
 }
