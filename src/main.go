@@ -4,19 +4,29 @@ import "fmt"
 
 func main() {
 	//Declaracion de constantes
-	const pi float64 = 3.14
-	const pi2 = 3.1415
+	const Hellomessage string = "Hello"
+	const Worldmessage string = "World"
 
-	fmt.Println("pi", pi)
-	fmt.Println("pi", pi2)
+	//Println
+	fmt.Println(Hellomessage, Worldmessage)
+	fmt.Println(Hellomessage, Worldmessage)
 
-	//Declaracion de variables enteras. 3 formas:
+	//Printf
+	//Sirve para introducir variables o constantes en el mensaje a imprimir en pantalla
+	const name string = "Hector"
+	const lastname_count int = 2
 
-	base := 10 //los dos puntos indican que se esta declarando la variable por primera vez
-	var altura int = 5
-	var area int
+	fmt.Printf("%s have more than %d lastnames\n", name, lastname_count)
+	fmt.Printf("%v have more than %v lastnames\n", name, lastname_count) // %v la usamos cuando no sepamos el tipo de dato
 
-	area = (base * altura) / 2
+	// Sprintf
+	//Sprintf sirve para guardar un print y que no se muestre por consola
+	var message string = fmt.Sprintf("%s have more than %d lastnames", name, lastname_count)
+	fmt.Println(message)
 
-	fmt.Println("El area es: ", area)
+	//data type
+	//El %T nos dice el tipo de dato
+	fmt.Printf("hellomessage: %T\n", Hellomessage)
+	fmt.Printf("lastname count: %T\n", lastname_count)
+
 }
