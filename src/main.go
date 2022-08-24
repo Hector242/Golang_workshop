@@ -6,21 +6,27 @@ import (
 
 func main() {
 
-	switch module := 5 % 2; module {
-	case 0:
-		fmt.Println("Es par")
-	default:
-		fmt.Println("Es impar")
-	}
+	//defer.
+	//Defer es el keyword que ejecuta  la funcion antes que el programa muera
+	defer fmt.Println("Hello")
+	fmt.Println("world")
 
-	//without condition
-	value := 200
-	switch {
-	case value > 100:
-		fmt.Println("es mayor a 100")
-	case value == 100:
-		fmt.Println("es igual a 100")
-	default:
-		fmt.Println("Es menor a 100")
+	//continue y break
+	for i := 0; i < 10; i++ {
+		fmt.Println(i)
+
+		//continue
+		//permite continuar un ciclo a pesar que se de una condicion
+		if i == 2 {
+			fmt.Println("Es 2")
+			continue
+		}
+
+		//break
+		//permite parar un ciclo si se da una condicion
+		if i == 8 {
+			fmt.Println("Es break")
+			break
+		}
 	}
 }
