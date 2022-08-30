@@ -4,23 +4,19 @@ import (
 	"fmt"
 )
 
+type car struct {
+	brand string
+	year  int
+}
+
 func main() {
-	//Maps es un diccionario como podria ser en python
-	//Make nos permite crear diccionarios y otras variables
-	m := make(map[string]int)
+	// first way to instance a struct
+	myCar := car{brand: "Toyota", year: 2022}
+	fmt.Println(myCar)
 
-	m["Jose"] = 14
-	m["pepito"] = 12
-
-	fmt.Println(m)
-
-	//Para recorrer un diccionario
-	for i, v := range m {
-		fmt.Println(i, v)
-	}
-
-	//encontrar un valor
-	value, ok := m["Jose"] //el ok es un booleano que nos confirma si esa llave existe o no
-	fmt.Println(value, ok)
-
+	// other way to instance a struct
+	var secondCar car
+	secondCar.brand = "Ford"
+	secondCar.year = 2001
+	fmt.Println(secondCar)
 }
