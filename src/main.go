@@ -2,55 +2,25 @@ package main
 
 import (
 	"fmt"
-	"strings"
 )
 
-func isPalindromo(text string) {
-	var textReverse string
-
-	// Volteamos el texto
-	for i := len(text) - 1; i >= 0; i-- {
-		textReverse += string(text[i]) //pasamos de numero ASCII a texto
-	}
-
-	//imprimimos palabra inversa
-	fmt.Println("Palabra inversa: ", textReverse)
-
-	//Convertimos todas las palabras en minuscula para la comparacion
-	var text_lowercase string = strings.ToLower(text)
-	var textReverse_lowercase string = strings.ToLower(textReverse)
-
-	//Revisamos palabra inversa
-	if text_lowercase == textReverse_lowercase {
-		fmt.Println("Es palindromo")
-	} else {
-		fmt.Println("No es palindromo")
-	}
-}
-
 func main() {
-	slice := []string{"Hola", "que", "hace"}
+	//Maps es un diccionario como podria ser en python
+	//Make nos permite crear diccionarios y otras variables
+	m := make(map[string]int)
 
-	// Imprimir  slice con indice
-	for i, value := range slice {
-		fmt.Println(i, value)
+	m["Jose"] = 14
+	m["pepito"] = 12
+
+	fmt.Println(m)
+
+	//Para recorrer un diccionario
+	for i, v := range m {
+		fmt.Println(i, v)
 	}
-	// Imprimir  slice sin indice
-	for _, value := range slice {
-		fmt.Println(value)
-	}
-	// Imprimir  indice
-	for value := range slice {
-		fmt.Println(value)
-	}
 
-	//Palindromo
-	var word string
+	//encontrar un valor
+	value, ok := m["Jose"] //el ok es un booleano que nos confirma si esa llave existe o no
+	fmt.Println(value, ok)
 
-	fmt.Printf("\n")
-	fmt.Printf("Ingrese una palabra: ")
-	fmt.Scanf("%s", &word)
-
-	fmt.Printf("\n")
-	isPalindromo(word)
 }
