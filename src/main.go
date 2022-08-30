@@ -5,28 +5,32 @@ import (
 )
 
 func main() {
+	// Array
+	//son Inmutables
+	var array [4]int //se le indica la cantidad de valores a guardar
+	array[0] = 1
+	array[1] = 2
+	//len te da la longitud del array
+	//cap te da su capacidad maxima
+	fmt.Println(array, len(array), cap(array))
 
-	//defer.
-	//Defer es el keyword que ejecuta  la funcion antes que el programa muera
-	defer fmt.Println("Hello")
-	fmt.Println("world")
+	//slices
+	//son Mutables
+	slice := []int{0, 1, 2, 4, 5} //no se le agrega la cantidad de valores a guardar
+	fmt.Println(slice, len(slice), cap(slice))
 
-	//continue y break
-	for i := 0; i < 10; i++ {
-		fmt.Println(i)
+	//metodos en el slice
+	fmt.Println(slice[0])   //imprime el valor del indice 0
+	fmt.Println(slice[:3])  //imprime los valores de los indices del 0 al 3
+	fmt.Println(slice[2:4]) //imprime los valores de los indices del 2 al 4
+	fmt.Println(slice[4:])  //imprime los valores de los indices del 4 al ultimo
 
-		//continue
-		//permite continuar un ciclo a pesar que se de una condicion
-		if i == 2 {
-			fmt.Println("Es 2")
-			continue
-		}
+	//append
+	slice = append(slice, 6) //agrega el numero 6 al slice
+	fmt.Println(slice)
 
-		//break
-		//permite parar un ciclo si se da una condicion
-		if i == 8 {
-			fmt.Println("Es break")
-			break
-		}
-	}
+	//append nueva lista
+	newSlice := []int{7, 8, 9}
+	slice = append(slice, newSlice...)
+	fmt.Println(slice)
 }
