@@ -2,35 +2,55 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
+func isPalindromo(text string) {
+	var textReverse string
+
+	// Volteamos el texto
+	for i := len(text) - 1; i >= 0; i-- {
+		textReverse += string(text[i]) //pasamos de numero ASCII a texto
+	}
+
+	//imprimimos palabra inversa
+	fmt.Println("Palabra inversa: ", textReverse)
+
+	//Convertimos todas las palabras en minuscula para la comparacion
+	var text_lowercase string = strings.ToLower(text)
+	var textReverse_lowercase string = strings.ToLower(textReverse)
+
+	//Revisamos palabra inversa
+	if text_lowercase == textReverse_lowercase {
+		fmt.Println("Es palindromo")
+	} else {
+		fmt.Println("No es palindromo")
+	}
+}
+
 func main() {
-	// Array
-	//son Inmutables
-	var array [4]int //se le indica la cantidad de valores a guardar
-	array[0] = 1
-	array[1] = 2
-	//len te da la longitud del array
-	//cap te da su capacidad maxima
-	fmt.Println(array, len(array), cap(array))
+	slice := []string{"Hola", "que", "hace"}
 
-	//slices
-	//son Mutables
-	slice := []int{0, 1, 2, 4, 5} //no se le agrega la cantidad de valores a guardar
-	fmt.Println(slice, len(slice), cap(slice))
+	// Imprimir  slice con indice
+	for i, value := range slice {
+		fmt.Println(i, value)
+	}
+	// Imprimir  slice sin indice
+	for _, value := range slice {
+		fmt.Println(value)
+	}
+	// Imprimir  indice
+	for value := range slice {
+		fmt.Println(value)
+	}
 
-	//metodos en el slice
-	fmt.Println(slice[0])   //imprime el valor del indice 0
-	fmt.Println(slice[:3])  //imprime los valores de los indices del 0 al 3
-	fmt.Println(slice[2:4]) //imprime los valores de los indices del 2 al 4
-	fmt.Println(slice[4:])  //imprime los valores de los indices del 4 al ultimo
+	//Palindromo
+	var word string
 
-	//append
-	slice = append(slice, 6) //agrega el numero 6 al slice
-	fmt.Println(slice)
+	fmt.Printf("\n")
+	fmt.Printf("Ingrese una palabra: ")
+	fmt.Scanf("%s", &word)
 
-	//append nueva lista
-	newSlice := []int{7, 8, 9}
-	slice = append(slice, newSlice...)
-	fmt.Println(slice)
+	fmt.Printf("\n")
+	isPalindromo(word)
 }
