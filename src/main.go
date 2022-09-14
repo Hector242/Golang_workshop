@@ -10,38 +10,16 @@ type pc struct {
 	brand string
 }
 
-func (myPc pc) ping() {
-	fmt.Println("la marca es: ", myPc.brand)
-}
-
-func (myPc *pc) duplicateRam() {
-	myPc.ram = myPc.ram * 2
+func (myPc pc) String() string {
+	return fmt.Sprintf("my pc has %d Gb of ram, %d Tb of disk and is a %s", myPc.ram, myPc.disk, myPc.brand)
 }
 
 func main() {
 
-	a := 50
-	b := &a
-
-	fmt.Println("La direccion de memoria es: ", b)
-	fmt.Println("El valor en esa direccion es: ", *b)
-
-	*b = 100
-	fmt.Println("Nuevo valor de la variable a es: ", a)
-
-	// ejemplo de structs con funciones
 	var myPc pc
 	myPc.brand = "asus"
 	myPc.disk = 100
 	myPc.ram = 32
 
-	fmt.Println("My pc tiene: ", myPc)
-
-	myPc.ping()
-
-	// usando punteros con los struct en funciones
-	fmt.Println("Estado actual de mi pc: ", myPc)
-
-	myPc.duplicateRam()
-	fmt.Println("Ram duplicada: ", myPc)
+	fmt.Println(myPc)
 }
