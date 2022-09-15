@@ -4,22 +4,50 @@ import (
 	"fmt"
 )
 
-type pc struct {
-	ram   int
-	disk  int
-	brand string
+// interface that hold the functions that my structs are sharing
+type area2D interface {
+	area() float64
 }
 
-func (myPc pc) String() string {
-	return fmt.Sprintf("my pc has %d Gb of ram, %d Tb of disk and is a %s", myPc.ram, myPc.disk, myPc.brand)
+// create structs
+type square struct {
+	base float64
+}
+
+type rectangle struct {
+	base float64
+	high float64
+}
+
+// function to calculate de area
+func (s square) area() float64 {
+	return s.base * s.base
+}
+
+func (r rectangle) area() float64 {
+	return r.base * r.high
+}
+
+// function to calculate de area and instantiate the interface
+func calculate(a area2D) {
+	fmt.Println("Area: ", a.area())
 }
 
 func main() {
+	//instantiate the structs
 
-	var myPc pc
-	myPc.brand = "asus"
-	myPc.disk = 100
-	myPc.ram = 32
+	var mySquare square
+	var myRectangle rectangle
 
-	fmt.Println(myPc)
+	mySquare.base = 2
+	myRectangle.base = 2
+	myRectangle.high = 4
+
+	calculate(mySquare)
+	calculate(myRectangle)
+
+	//Interface list
+	myInterfaceList := []interface{}{"Hola", 1, 12, true}
+
+	fmt.Println(myInterfaceList...)
 }
